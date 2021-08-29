@@ -27,8 +27,14 @@ def translate(morse):
     return map(lambda x: x if x != '' else ' ', translated)
 
 
+def sentence(letters):
+    sentence = ''.join(letters)
+    return sentence
+
+
 print("Welcome to Morse Code Translator")
 print(". = •")
 print("-- = ▬")
 print("space = tab")
 morse_code = input("Please enter the code:")
+print(sentence(translate(clean_data(morse_code))))
