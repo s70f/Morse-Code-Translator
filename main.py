@@ -1,1 +1,5 @@
-
+print("Welcome to Morse Code Translator")
+print(". = •")
+print("_ = ▬")
+print("space = tab")
+morse_code = input("Please enter the code:")
