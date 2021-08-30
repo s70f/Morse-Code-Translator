@@ -7,6 +7,7 @@ letter_to_morse = {
 # −− −−− ·−· ··· ·  −·−· −−− −·· ·
 # ··· ··− ···· ·− −·−− −···
 # ··· ··− ···· ·− −·−− −···   ··· ·− −· ·−
+# ... .._ .... ._ _.__ _...
 
 
 def clean_morse(user_input: str) -> list:
@@ -18,13 +19,26 @@ def clean_text(user_input: str) -> list:
     return list(user_input.upper())
 
 
+def morse_letter(user_input: str) -> bool:
+    if "·" in user_input or "−" in user_input or "_" in user_input:
+        return True
+    elif ".." in user_input or " . " in user_input:
+        return True
+
+
 def translate(user_input):
     translated = []
-    if "·" in user_input or "−" in user_input:
+    if morse_letter(user_input) == True:
         list_input = clean_morse(user_input)
         morse_to_letter = {v: k for k, v in letter_to_morse.items()}
         for char in list_input:
-            if char == '':
+            if "." in user_input or "_" in user_input:
+                char = char.replace(".", "·")
+                char = char.replace("_", "−")
+                if letter := morse_to_letter.get(char):
+                    translated.append(letter)
+
+            elif char == '':
                 translated.append(' ')
             elif letter := morse_to_letter.get(char):
                 translated.append(letter)
@@ -46,8 +60,8 @@ def translate(user_input):
 
 print("Welcome to Morse Code Translator")
 print("You may translate from Morse to text or from text to Morse")
-print(". = •")
-print("-- = ▬")
+print("dot = • or .")
+print("dash = ▬ or _")
 print("space = tab")
 user_input = input("Please enter the code: ")
 print(translate(user_input))
