@@ -5,36 +5,49 @@ letter_to_morse = {
 }
 
 # −− −−− ·−· ··· ·  −·−· −−− −·· ·
+# ··· ··− ···· ·− −·−− −···
+# ··· ··− ···· ·− −·−− −···   ··· ·− −· ·−
 
 
-def clean_data(input_morse):
-    clean_morse = input_morse.replace('\t', '  ').split(" ")
-    print(input_morse)
-    print(clean_morse)
-    return clean_morse
+def clean_morse(user_input: str) -> list:
+    list_input = user_input.replace('\t', '  ').split(" ")
+    return list_input
 
 
-def translate(morse):
+def clean_text(user_input: str) -> list:
+    return list(user_input.upper())
+
+
+def translate(user_input):
     translated = []
-    morse_to_letter = {v: k for k, v in letter_to_morse.items()}
-    for i in morse:
-        if i == '':
-            translated.append(i)
-        elif letter := morse_to_letter.get(i):
-            translated.append(letter)
+    if "·" in user_input or "−" in user_input:
+        list_input = clean_morse(user_input)
+        morse_to_letter = {v: k for k, v in letter_to_morse.items()}
+        for char in list_input:
+            if char == '':
+                translated.append(' ')
+            elif letter := morse_to_letter.get(char):
+                translated.append(letter)
 
-    print(translated)
-    return map(lambda x: x if x != '' else ' ', translated)
+        sentence = ''.join(translated)
 
+    else:
+        list_input = clean_text(user_input)
+        for char in list_input:
+            if char == ' ':
+                translated.append('')
+            elif morse := letter_to_morse.get(char):
+                translated.append(morse)
 
-def sentence(letters):
-    sentence = ''.join(letters)
+        sentence = ' '.join(translated)
+
     return sentence
 
 
 print("Welcome to Morse Code Translator")
+print("You may translate from Morse to text or from text to Morse")
 print(". = •")
 print("-- = ▬")
 print("space = tab")
-morse_code = input("Please enter the code:")
-print(sentence(translate(clean_data(morse_code))))
+user_input = input("Please enter the code: ")
+print(translate(user_input))
