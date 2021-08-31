@@ -12,10 +12,10 @@ A friend told me to practice my use of dictionaries and cleaning data so I decid
 import Moorse
 
 # returns 'text'
-print(translate('Morse Code'))
+print(Moorse.translate('Morse Code'))
 
 # returns 'morse code'
-print(translate('text'))
+print(Moorse.translate('text'))
 ```
 
 ## Keep in Mind
