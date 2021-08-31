@@ -15,7 +15,7 @@ import Moorse
 print(Moorse.translate('Morse Code'))
 
 # returns 'morse code'
-print(Moorse.translate('text'))
+print(Moorse.translate('Text'))
 ```
 
 ## Keep in Mind
