@@ -58,10 +58,11 @@ def translate(user_input):
     return sentence
 
 
-print("Welcome to Morse Code Translator")
-print("You may translate from Morse to text or from text to Morse")
-print("dot = • or .")
-print("dash = ▬ or _")
-print("space = tab")
-user_input = input("Please enter the code: ")
-print(translate(user_input))
+if __name__ == '__main__':
+    print("Welcome to Morse Code Translator")
+    print("You may translate from Morse to text or from text to Morse")
+    print("dot = • or .")
+    print("dash = ▬ or _")
+    print("space = tab")
+    user_input = input("Please enter the code: ")
+    print(translate(user_input))
