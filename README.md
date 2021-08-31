@@ -20,3 +20,5 @@ print(translate('text'))
 
 ## Keep in Mind
 The `_` and `▬` simple is used for dashes and the `.` and `•` is used for dots.
+
+Accented letters are not supported ex. `À`, `È`, `Ö`.
