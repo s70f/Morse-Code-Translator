@@ -11,10 +11,10 @@ A friend told me to practice my use of dictionaries and cleaning data so I decid
 ```python
 import Moorse
 
-# returns 'text'
+# prints 'text'
 print(Moorse.translate('Morse Code'))
 
-# returns 'morse code'
+# prints 'morse code'
 print(Moorse.translate('Text'))
 ```
 
